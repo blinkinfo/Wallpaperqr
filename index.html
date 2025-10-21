@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Wallpaper Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>QR Code Wallpaper Generator</h1>
+        <p class="subtitle">Create beautiful iPhone wallpapers with QR codes</p>
+
+        <div class="form-container">
+            <div class="input-group">
+                <label for="url">URL</label>
+                <input type="url" id="url" placeholder="https://example.com" required>
+            </div>
+
+            <div class="input-group">
+                <label for="text">Text (to display below QR code)</label>
+                <input type="text" id="text" placeholder="Scan me!" maxlength="50">
+            </div>
+
+            <div class="input-group">
+                <label for="bgColor">Background Color</label>
+                <input type="color" id="bgColor" value="#1a1a2e">
+            </div>
+
+            <div class="input-group">
+                <label for="textColor">Text Color</label>
+                <input type="color" id="textColor" value="#eaeaea">
+            </div>
+
+            <button id="generateBtn" class="btn-primary">Generate Wallpaper</button>
+        </div>
+
+        <div id="previewContainer" class="preview-container hidden">
+            <h2>Preview</h2>
+            <div class="preview-wrapper">
+                <canvas id="wallpaperCanvas"></canvas>
+            </div>
+            <button id="downloadBtn" class="btn-secondary">Download Wallpaper</button>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
