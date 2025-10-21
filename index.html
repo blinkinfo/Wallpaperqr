@@ -41,23 +41,55 @@
 
                 <!-- Quick Presets -->
                 <div class="presets-section">
-                    <label class="section-label">Quick Presets</label>
+                    <label class="section-label">Wallpaper Themes</label>
                     <div class="presets-grid">
-                        <button class="preset-btn" data-preset="dark">
-                            <div class="preset-preview" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);"></div>
-                            <span>Dark</span>
+                        <button class="preset-btn" data-preset="sunset">
+                            <div class="preset-preview" style="background: linear-gradient(135deg, #FF6B6B 0%, #FFE66D 50%, #FF8E53 100%);"></div>
+                            <span>Sunset</span>
                         </button>
-                        <button class="preset-btn" data-preset="light">
-                            <div class="preset-preview" style="background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);"></div>
-                            <span>Light</span>
+                        <button class="preset-btn" data-preset="aurora">
+                            <div class="preset-preview" style="background: linear-gradient(135deg, #00C9FF 0%, #92FE9D 50%, #00F260 100%);"></div>
+                            <span>Aurora</span>
                         </button>
-                        <button class="preset-btn" data-preset="gradient">
-                            <div class="preset-preview" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
-                            <span>Gradient</span>
+                        <button class="preset-btn" data-preset="galaxy">
+                            <div class="preset-preview" style="background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e22ce 100%);"></div>
+                            <span>Galaxy</span>
+                        </button>
+                        <button class="preset-btn" data-preset="neon">
+                            <div class="preset-preview" style="background: linear-gradient(135deg, #0F2027 0%, #203A43 50%, #2C5364 100%);"></div>
+                            <span>Neon</span>
+                        </button>
+                        <button class="preset-btn" data-preset="rose">
+                            <div class="preset-preview" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></div>
+                            <span>Rose Gold</span>
+                        </button>
+                        <button class="preset-btn" data-preset="forest">
+                            <div class="preset-preview" style="background: linear-gradient(135deg, #134E5E 0%, #71B280 100%);"></div>
+                            <span>Forest</span>
+                        </button>
+                        <button class="preset-btn" data-preset="lavender">
+                            <div class="preset-preview" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);"></div>
+                            <span>Lavender</span>
+                        </button>
+                        <button class="preset-btn" data-preset="fire">
+                            <div class="preset-preview" style="background: linear-gradient(135deg, #f12711 0%, #f5af19 100%);"></div>
+                            <span>Fire</span>
                         </button>
                         <button class="preset-btn" data-preset="ocean">
-                            <div class="preset-preview" style="background: linear-gradient(135deg, #2193b0 0%, #6dd5ed 100%);"></div>
-                            <span>Ocean</span>
+                            <div class="preset-preview" style="background: linear-gradient(135deg, #2E3192 0%, #1BFFFF 100%);"></div>
+                            <span>Deep Ocean</span>
+                        </button>
+                        <button class="preset-btn" data-preset="midnight">
+                            <div class="preset-preview" style="background: linear-gradient(135deg, #232526 0%, #414345 100%);"></div>
+                            <span>Midnight</span>
+                        </button>
+                        <button class="preset-btn" data-preset="peach">
+                            <div class="preset-preview" style="background: linear-gradient(135deg, #ED4264 0%, #FFEDBC 100%);"></div>
+                            <span>Peach</span>
+                        </button>
+                        <button class="preset-btn" data-preset="mint">
+                            <div class="preset-preview" style="background: linear-gradient(135deg, #00d2ff 0%, #3a47d5 100%);"></div>
+                            <span>Ice Mint</span>
                         </button>
                     </div>
                 </div>
@@ -131,6 +163,40 @@
                                     <input type="text" id="qrBgColorHex" value="#ffffff" pattern="^#[0-9A-Fa-f]{6}$" maxlength="7">
                                 </div>
                             </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="pattern" class="form-label">Background Pattern</label>
+                            <select id="pattern" class="select-input">
+                                <option value="none">None</option>
+                                <option value="dots">Dots</option>
+                                <option value="grid">Grid</option>
+                                <option value="circles">Circles</option>
+                                <option value="waves">Waves</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="qrStyle" class="form-label">QR Code Style</label>
+                            <select id="qrStyle" class="select-input">
+                                <option value="square">Square</option>
+                                <option value="rounded">Rounded</option>
+                            </select>
+                        </div>
+
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="qrShadow" checked>
+                                <span>QR Code Shadow</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="textShadow" checked>
+                                <span>Text Shadow</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="textBackground">
+                                <span>Text Background</span>
+                            </label>
                         </div>
 
                         <div class="form-group">
