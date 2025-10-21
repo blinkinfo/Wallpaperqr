@@ -3,45 +3,224 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QR Code Wallpaper Generator</title>
+    <title>QR Code Wallpaper Generator - Create Custom iPhone Wallpapers</title>
+    <meta name="description" content="Create beautiful custom iPhone wallpapers with QR codes. Free online tool with live preview.">
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
-        <h1>QR Code Wallpaper Generator</h1>
-        <p class="subtitle">Create beautiful iPhone wallpapers with QR codes</p>
+        <header class="header">
+            <div class="logo">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="40" height="40" rx="8" fill="url(#gradient)"/>
+                    <path d="M12 12H16V16H12V12Z" fill="white"/>
+                    <path d="M24 12H28V16H24V12Z" fill="white"/>
+                    <path d="M12 24H16V28H12V24Z" fill="white"/>
+                    <path d="M20 20H24V24H20V20Z" fill="white"/>
+                    <defs>
+                        <linearGradient id="gradient" x1="0" y1="0" x2="40" y2="40">
+                            <stop offset="0%" stop-color="#667eea"/>
+                            <stop offset="100%" stop-color="#764ba2"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <h1>QR Wallpaper</h1>
+            </div>
+            <p class="subtitle">Create beautiful iPhone wallpapers with custom QR codes</p>
+        </header>
 
-        <div class="form-container">
-            <div class="input-group">
-                <label for="url">URL</label>
-                <input type="url" id="url" placeholder="https://example.com" required>
+        <div class="main-content">
+            <div class="form-section">
+                <div class="section-header">
+                    <h2>Customize Your Wallpaper</h2>
+                    <button id="resetBtn" class="btn-link">Reset to Default</button>
+                </div>
+
+                <!-- Quick Presets -->
+                <div class="presets-section">
+                    <label class="section-label">Quick Presets</label>
+                    <div class="presets-grid">
+                        <button class="preset-btn" data-preset="dark">
+                            <div class="preset-preview" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);"></div>
+                            <span>Dark</span>
+                        </button>
+                        <button class="preset-btn" data-preset="light">
+                            <div class="preset-preview" style="background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);"></div>
+                            <span>Light</span>
+                        </button>
+                        <button class="preset-btn" data-preset="gradient">
+                            <div class="preset-preview" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
+                            <span>Gradient</span>
+                        </button>
+                        <button class="preset-btn" data-preset="ocean">
+                            <div class="preset-preview" style="background: linear-gradient(135deg, #2193b0 0%, #6dd5ed 100%);"></div>
+                            <span>Ocean</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- QR Code Content -->
+                <div class="form-group">
+                    <label for="url" class="form-label">
+                        <span>QR Code URL</span>
+                        <span class="required">*</span>
+                    </label>
+                    <div class="input-wrapper">
+                        <input type="url" id="url" placeholder="https://example.com" required autocomplete="url">
+                        <span class="input-icon">🔗</span>
+                    </div>
+                    <span class="error-message" id="urlError"></span>
+                    <span class="help-text">Enter the URL that the QR code will redirect to</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="text" class="form-label">
+                        <span>Display Text</span>
+                        <span class="optional">(Optional)</span>
+                    </label>
+                    <div class="input-wrapper">
+                        <input type="text" id="text" placeholder="Scan to visit my website" maxlength="100">
+                        <span class="input-icon">📝</span>
+                    </div>
+                    <div class="char-counter">
+                        <span id="charCount">0</span> / 100 characters
+                    </div>
+                </div>
+
+                <!-- Design Options -->
+                <div class="accordion">
+                    <button class="accordion-header" type="button">
+                        <span>🎨 Design Options</span>
+                        <svg class="accordion-icon" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+                        </svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="color-grid">
+                            <div class="form-group">
+                                <label for="bgColor" class="form-label">Background Color</label>
+                                <div class="color-input-wrapper">
+                                    <input type="color" id="bgColor" value="#1a1a2e">
+                                    <input type="text" id="bgColorHex" value="#1a1a2e" pattern="^#[0-9A-Fa-f]{6}$" maxlength="7">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="textColor" class="form-label">Text Color</label>
+                                <div class="color-input-wrapper">
+                                    <input type="color" id="textColor" value="#eaeaea">
+                                    <input type="text" id="textColorHex" value="#eaeaea" pattern="^#[0-9A-Fa-f]{6}$" maxlength="7">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="qrColor" class="form-label">QR Code Color</label>
+                                <div class="color-input-wrapper">
+                                    <input type="color" id="qrColor" value="#000000">
+                                    <input type="text" id="qrColorHex" value="#000000" pattern="^#[0-9A-Fa-f]{6}$" maxlength="7">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="qrBgColor" class="form-label">QR Background</label>
+                                <div class="color-input-wrapper">
+                                    <input type="color" id="qrBgColor" value="#ffffff">
+                                    <input type="text" id="qrBgColorHex" value="#ffffff" pattern="^#[0-9A-Fa-f]{6}$" maxlength="7">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="fontFamily" class="form-label">Font</label>
+                            <select id="fontFamily" class="select-input">
+                                <option value="Inter">Inter (Default)</option>
+                                <option value="Arial">Arial</option>
+                                <option value="Helvetica">Helvetica</option>
+                                <option value="Georgia">Georgia</option>
+                                <option value="Courier New">Courier New</option>
+                                <option value="Verdana">Verdana</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="fontSize" class="form-label">
+                                Text Size: <span id="fontSizeValue">80</span>px
+                            </label>
+                            <input type="range" id="fontSize" min="40" max="120" value="80" class="slider">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="qrSize" class="form-label">
+                                QR Code Size: <span id="qrSizeValue">800</span>px
+                            </label>
+                            <input type="range" id="qrSize" min="600" max="1000" value="800" class="slider">
+                        </div>
+                    </div>
+                </div>
+
+                <button id="generateBtn" class="btn-primary">
+                    <span class="btn-text">Generate Wallpaper</span>
+                    <span class="btn-loader hidden">
+                        <svg class="spinner" viewBox="0 0 50 50">
+                            <circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
+                        </svg>
+                    </span>
+                </button>
+
+                <div class="auto-generate-toggle">
+                    <label class="toggle-label">
+                        <input type="checkbox" id="autoGenerate">
+                        <span class="toggle-slider"></span>
+                        <span class="toggle-text">Auto-update preview</span>
+                    </label>
+                </div>
             </div>
 
-            <div class="input-group">
-                <label for="text">Text (to display below QR code)</label>
-                <input type="text" id="text" placeholder="Scan me!" maxlength="50">
-            </div>
+            <div class="preview-section">
+                <div class="preview-header">
+                    <h2>Preview</h2>
+                    <div class="preview-info">
+                        <span class="info-badge">1320 × 2868 px</span>
+                    </div>
+                </div>
 
-            <div class="input-group">
-                <label for="bgColor">Background Color</label>
-                <input type="color" id="bgColor" value="#1a1a2e">
-            </div>
+                <div id="previewContainer" class="preview-container">
+                    <div class="preview-placeholder" id="previewPlaceholder">
+                        <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="10" y="10" width="30" height="30" fill="#e0e0e0" rx="4"/>
+                            <rect x="80" y="10" width="30" height="30" fill="#e0e0e0" rx="4"/>
+                            <rect x="10" y="80" width="30" height="30" fill="#e0e0e0" rx="4"/>
+                            <rect x="50" y="50" width="30" height="30" fill="#e0e0e0" rx="4"/>
+                        </svg>
+                        <p>Your wallpaper preview will appear here</p>
+                        <p class="preview-hint">Enter a URL and click Generate</p>
+                    </div>
+                    <div class="preview-wrapper hidden" id="previewWrapper">
+                        <div class="phone-frame">
+                            <canvas id="wallpaperCanvas"></canvas>
+                        </div>
+                    </div>
+                </div>
 
-            <div class="input-group">
-                <label for="textColor">Text Color</label>
-                <input type="color" id="textColor" value="#eaeaea">
+                <div class="download-section hidden" id="downloadSection">
+                    <button id="downloadBtn" class="btn-download">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M10 12.586l-4.293-4.293a1 1 0 00-1.414 1.414l6 6a1 1 0 001.414 0l6-6a1 1 0 00-1.414-1.414L11 12.586V2a1 1 0 10-2 0v10.586z"/>
+                            <path d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"/>
+                        </svg>
+                        <span>Download Wallpaper</span>
+                    </button>
+                    <p class="download-hint">PNG format, ready for iPhone</p>
+                </div>
             </div>
-
-            <button id="generateBtn" class="btn-primary">Generate Wallpaper</button>
         </div>
 
-        <div id="previewContainer" class="preview-container hidden">
-            <h2>Preview</h2>
-            <div class="preview-wrapper">
-                <canvas id="wallpaperCanvas"></canvas>
-            </div>
-            <button id="downloadBtn" class="btn-secondary">Download Wallpaper</button>
-        </div>
+        <footer class="footer">
+            <p>Made with ❤️ for iPhone users | Free & Open Source</p>
+        </footer>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
