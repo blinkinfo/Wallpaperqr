@@ -173,8 +173,11 @@ let currentPresetGradient = null;
 
 // Accordion functionality
 accordionHeader.addEventListener('click', () => {
-    accordionHeader.classList.toggle('active');
+    const isOpen = accordionHeader.classList.toggle('active');
     accordionContent.classList.toggle('open');
+
+    // Update aria-expanded for accessibility
+    accordionHeader.setAttribute('aria-expanded', isOpen);
 });
 
 // Preset buttons

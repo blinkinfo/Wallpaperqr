@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="theme-color" content="#667eea">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <title>QR Code Wallpaper Generator - Create Custom iPhone Wallpapers</title>
     <meta name="description" content="Create beautiful custom iPhone wallpapers with QR codes. Free online tool with live preview.">
     <link rel="stylesheet" href="style.css">
@@ -12,9 +15,9 @@
 </head>
 <body>
     <div class="container">
-        <header class="header">
+        <header class="header" role="banner">
             <div class="logo">
-                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                     <rect width="40" height="40" rx="8" fill="url(#gradient)"/>
                     <path d="M12 12H16V16H12V12Z" fill="white"/>
                     <path d="M24 12H28V16H24V12Z" fill="white"/>
@@ -32,11 +35,11 @@
             <p class="subtitle">Create beautiful iPhone wallpapers with custom QR codes</p>
         </header>
 
-        <div class="main-content">
-            <div class="form-section">
+        <main class="main-content">
+            <section class="form-section" aria-label="Wallpaper customization">
                 <div class="section-header">
                     <h2>Customize Your Wallpaper</h2>
-                    <button id="resetBtn" class="btn-link">Reset to Default</button>
+                    <button id="resetBtn" class="btn-link" aria-label="Reset all settings to default">Reset to Default</button>
                 </div>
 
                 <!-- Quick Presets -->
@@ -124,13 +127,13 @@
 
                 <!-- Design Options -->
                 <div class="accordion">
-                    <button class="accordion-header" type="button">
+                    <button class="accordion-header" type="button" aria-expanded="false" aria-controls="design-options-content">
                         <span>🎨 Design Options</span>
-                        <svg class="accordion-icon" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                        <svg class="accordion-icon" width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                             <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
                         </svg>
                     </button>
-                    <div class="accordion-content">
+                    <div class="accordion-content" id="design-options-content">
                         <div class="color-grid">
                             <div class="form-group">
                                 <label for="bgColor" class="form-label">Background Color</label>
@@ -227,9 +230,9 @@
                     </div>
                 </div>
 
-                <button id="generateBtn" class="btn-primary">
+                <button id="generateBtn" class="btn-primary" aria-label="Generate wallpaper with current settings">
                     <span class="btn-text">Generate Wallpaper</span>
-                    <span class="btn-loader hidden">
+                    <span class="btn-loader hidden" aria-hidden="true">
                         <svg class="spinner" viewBox="0 0 50 50">
                             <circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
                         </svg>
@@ -238,24 +241,24 @@
 
                 <div class="auto-generate-toggle">
                     <label class="toggle-label">
-                        <input type="checkbox" id="autoGenerate">
-                        <span class="toggle-slider"></span>
+                        <input type="checkbox" id="autoGenerate" aria-label="Auto-update preview when settings change">
+                        <span class="toggle-slider" aria-hidden="true"></span>
                         <span class="toggle-text">Auto-update preview</span>
                     </label>
                 </div>
-            </div>
+            </section>
 
-            <div class="preview-section">
+            <section class="preview-section" aria-label="Wallpaper preview">
                 <div class="preview-header">
                     <h2>Preview</h2>
                     <div class="preview-info">
-                        <span class="info-badge">1320 × 2868 px</span>
+                        <span class="info-badge" aria-label="Wallpaper dimensions">1320 × 2868 px</span>
                     </div>
                 </div>
 
-                <div id="previewContainer" class="preview-container">
+                <div id="previewContainer" class="preview-container" role="img" aria-label="Wallpaper preview area">
                     <div class="preview-placeholder" id="previewPlaceholder">
-                        <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                             <rect x="10" y="10" width="30" height="30" fill="#e0e0e0" rx="4"/>
                             <rect x="80" y="10" width="30" height="30" fill="#e0e0e0" rx="4"/>
                             <rect x="10" y="80" width="30" height="30" fill="#e0e0e0" rx="4"/>
@@ -266,14 +269,14 @@
                     </div>
                     <div class="preview-wrapper hidden" id="previewWrapper">
                         <div class="phone-frame">
-                            <canvas id="wallpaperCanvas"></canvas>
+                            <canvas id="wallpaperCanvas" aria-label="Generated wallpaper preview"></canvas>
                         </div>
                     </div>
                 </div>
 
                 <div class="download-section hidden" id="downloadSection">
-                    <button id="downloadBtn" class="btn-download">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                    <button id="downloadBtn" class="btn-download" aria-label="Download generated wallpaper">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                             <path d="M10 12.586l-4.293-4.293a1 1 0 00-1.414 1.414l6 6a1 1 0 001.414 0l6-6a1 1 0 00-1.414-1.414L11 12.586V2a1 1 0 10-2 0v10.586z"/>
                             <path d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"/>
                         </svg>
@@ -281,10 +284,10 @@
                     </button>
                     <p class="download-hint">PNG format, ready for iPhone</p>
                 </div>
-            </div>
-        </div>
+            </section>
+        </main>
 
-        <footer class="footer">
+        <footer class="footer" role="contentinfo">
             <p>Made with ❤️ for iPhone users | Free & Open Source</p>
         </footer>
     </div>
